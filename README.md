@@ -2,7 +2,7 @@
 
 WanderLust is a simple MERN travel blog website ✈ This project is aimed to help people to contribute in open source, upskill in react and also master git.
 
-![Preview Image](https://github.com/krishnaacharyaa/wanderlust/assets/116620586/17ba9da6-225f-481d-87c0-5d5a010a9538)
+![Preview Image]
 #
 
 # Wanderlust Mega Project End to End Implementation
@@ -10,7 +10,7 @@ WanderLust is a simple MERN travel blog website ✈ This project is aimed to hel
 ### In this demo, we will see how to deploy an end to end three tier MERN stack application on EKS cluster.
 #
 ### <mark>Project Deployment Flow:</mark>
-<img src="https://github.com/DevMadhup/Wanderlust-Mega-Project/blob/main/Assets/DevSecOps%2BGitOps.gif" />
+<img src=
 
 #
 
@@ -28,14 +28,13 @@ WanderLust is a simple MERN travel blog website ✈ This project is aimed to hel
 
 ### How pipeline will look after deployment:
 - <b>CI pipeline to build and push</b>
-![image](https://github.com/user-attachments/assets/20542d8b-0701-43ed-b2f8-82f8ed28d053)
+![image](
 
 - <b>CD pipeline to update application version</b>
-![image](https://github.com/user-attachments/assets/8fd13807-622e-45f7-af23-dcc1ba30ca5d)
+![image]()
 
 - <b>ArgoCD application for deployment on EKS</b>
-![image](https://github.com/user-attachments/assets/1ea9d486-656e-40f1-804d-2651efb54cf6)
-
+![image]
 #
 > [!Important]
 > Below table helps you to navigate to the particular tool installation section fast.
@@ -65,8 +64,7 @@ sudo su
 - <b>Create 1 Master machine on AWS with 2CPU, 8GB of RAM (t2.large) and 29 GB of storage and install Docker on it.</b>
 #
 - <b>Open the below ports in security group of master machine and also attach same security group to Jenkins worker node (We will create worker node shortly)</b>
-![image](https://github.com/user-attachments/assets/4e5ecd37-fe2e-4e4b-a6ba-14c7b62715a3)
-
+![image](
 > [!Note]
 > We are creating this master machine because we will configure Jenkins master, eksctl, EKS cluster creation from here.
 
@@ -99,7 +97,7 @@ sudo apt-get install jenkins -y
 #
 - <b id="EKS">Create EKS Cluster on AWS (Master machine)</b>
   - IAM user with **access keys and secret access keys**
-  - AWSCLI should be configured (<a href="https://github.com/DevMadhup/DevOps-Tools-Installations/blob/main/AWSCLI/AWSCLI.sh">Setup AWSCLI</a>)
+  - AWSCLI should be configured (<a h">Setup AWSCLI</a>)
   ```bash
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   sudo apt install unzip
@@ -108,7 +106,7 @@ sudo apt-get install jenkins -y
   aws configure
   ```
 
-  - Install **kubectl** (Master machine)(<a href="https://github.com/DevMadhup/DevOps-Tools-Installations/blob/main/Kubectl/Kubectl.sh">Setup kubectl </a>)
+  - Install **kubectl** (Master machine)(<a >Setup kubectl </a>)
   ```bash
   curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
   chmod +x ./kubectl
@@ -116,7 +114,7 @@ sudo apt-get install jenkins -y
   kubectl version --short --client
   ```
 
-  - Install **eksctl** (Master machine) (<a href="https://github.com/DevMadhup/DevOps-Tools-Installations/blob/main/eksctl%20/eksctl.sh">Setup eksctl</a>)
+  - Install **eksctl** (Master machine) (<a ">Setup eksctl</a>)
   ```bash
   curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
   sudo mv /tmp/eksctl /usr/local/bin
@@ -160,9 +158,8 @@ sudo apt-get install jenkins -y
   sudo apt install fontconfig openjdk-17-jre -y
   ```
   - Create an IAM role with <mark>administrator access</mark> attach it to the jenkins worker node <mark>Select Jenkins worker node EC2 instance --> Actions --> Security --> Modify IAM role</mark>
-  ![image](https://github.com/user-attachments/assets/1a9060db-db11-40b7-86f0-47a65e8ed68b)
-
-  - Configure AWSCLI (<a href="https://github.com/DevMadhup/DevOps-Tools-Installations/blob/main/AWSCLI/AWSCLI.sh">Setup AWSCLI</a>)
+  ![image]
+  - Configure AWSCLI (<a ">Setup AWSCLI</a>)
   ```bash
   sudo su
   ```
@@ -178,7 +175,7 @@ sudo apt-get install jenkins -y
   ```bash
   ssh-keygen
   ```
-  ![image](https://github.com/user-attachments/assets/0c8ecb74-1bc5-46f9-ad55-1e22e8092198)
+  ![image](
 #
   - <b>Now move to directory where your ssh keys are generated and copy the content of public key and paste to authorized_keys file of the Jenkins worker node.</b>
 #
@@ -196,8 +193,7 @@ sudo apt-get install jenkins -y
     - <b>Availability:</b> Keep this agent online as much as possible
 #
   - And your jenkins worker node is added
-  ![image](https://github.com/user-attachments/assets/cab93696-a4e2-4501-b164-8287d7077eef)
-
+  ![image](
 # 
 - <b id="docker">Install docker (Jenkins Worker)</b>
 
@@ -254,14 +250,14 @@ sudo apt-get install trivy -y
   kubectl get svc -n argocd
   ```
   - <b> Check the port where ArgoCD server is running and expose it on security groups of a worker node</b>
-  ![image](https://github.com/user-attachments/assets/a2932e03-ebc7-42a6-9132-82638152197f)
+  ![image](h
   - <b>Access it on browser, click on advance and proceed with</b>
   ```bash
   <public-ip-worker>:<port>
   ```
-  ![image](https://github.com/user-attachments/assets/29d9cdbd-5b7c-44b3-bb9b-1d091d042ce3)
-  ![image](https://github.com/user-attachments/assets/08f4e047-e21c-4241-ba68-f9b719a4a39a)
-  ![image](https://github.com/user-attachments/assets/1ffa85c3-9055-49b4-aab0-0947b95f0dd2)
+  ![image](h)
+  ![image](
+  ![image](h
   - <b>Fetch the initial password of argocd server</b>
   ```bash
   kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
@@ -277,27 +273,26 @@ sudo apt-get install trivy -y
 > [!Important]
 > Make sure 2 step verification must be on
 
-  ![image](https://github.com/user-attachments/assets/5ab9dc9d-dcce-4f9d-9908-01095f1253cb)
+  ![image](h
 
   - <b>Search for <mark>App password</mark> and create a app password for jenkins</b>
-  ![image](https://github.com/user-attachments/assets/701752da-7703-4685-8f06-fe1f65dd1b9c)
-  ![image](https://github.com/user-attachments/assets/adc8d8c0-8be4-4319-9042-4115abb5c6fc)
-  
+  ![image](
+  ![image](ht
 #
 - <b> Once, app password is create and go back to jenkins <mark>Manage Jenkins --> Credentials</mark> to add username and password for email notification</b>
-![image](https://github.com/user-attachments/assets/2a42ec62-87c8-43c8-a034-7be0beb8824e)
+![image](
 
 # 
 - <b> Go back to <mark>Manage Jenkins --> System</mark> and search for <mark>Extended E-mail Notification</mark></b>
-![image](https://github.com/user-attachments/assets/bac81e24-bb07-4659-a251-955966feded8)
+![image](h)
 #
 - <b>Scroll down and search for <mark>E-mail Notification</mark> and setup email notification</b>
 > [!Important]
 > Enter your gmail password which we copied recently in password field <mark>E-mail Notification --> Advance</mark>
 
-![image](https://github.com/user-attachments/assets/14e254fc-1400-457e-b3f4-046404b66950)
-![image](https://github.com/user-attachments/assets/7be70b3a-b0dc-415c-838a-b1c6fd87c182)
-![image](https://github.com/user-attachments/assets/cffb6e1d-4838-483e-97e0-6851c204ab21)
+![image](
+![image](
+![image](ab21)
 
 #
 ## Steps to implement the project:
@@ -308,27 +303,25 @@ sudo apt-get install trivy -y
   - Pipeline: Stage View
 #
 - <b id="Owasp">Configure OWASP, move to <mark>Manage Jenkins --> Plugins --> Available plugins</mark> (Jenkins Worker)</b>
-![image](https://github.com/user-attachments/assets/da6a26d3-f742-4ea8-86b7-107b1650a7c2)
+![image]()
 
 - <b id="Sonar">After OWASP plugin is installed, Now move to <mark>Manage jenkins --> Tools</mark> (Jenkins Worker)</b>
-![image](https://github.com/user-attachments/assets/3b8c3f20-202e-4864-b3b6-b48d7a604ee8)
+![image](
 #
 - <b>Login to SonarQube server and create the credentials for jenkins to integrate with SonarQube</b>
   - Navigate to <mark>Administration --> Security --> Users --> Token</mark>
-  ![image](https://github.com/user-attachments/assets/86ad8284-5da6-4048-91fe-ac20c8e4514a)
-  ![image](https://github.com/user-attachments/assets/6bc671a5-c122-45c0-b1f0-f29999bbf751)
-  ![image](https://github.com/user-attachments/assets/e748643a-e037-4d4c-a9be-944995979c60)
+  ![image](ht
+  ![image](h
+  ![image]
 
 #
 - <b>Now, go to <mark> Manage Jenkins --> credentials</mark> and add Sonarqube credentials:</b>
-![image](https://github.com/user-attachments/assets/0688e105-2170-4c3f-87a3-128c1a05a0b8)
+![image])
 #
 - <b>Go to <mark> Manage Jenkins --> Tools</mark> and search for SonarQube Scanner installations:</b>
-![image](https://github.com/user-attachments/assets/2fdc1e56-f78c-43d2-914a-104ec2c8ea86)
-#
+![image](
 - <b> Go to <mark> Manage Jenkins --> credentials</mark> and add Github credentials to push updated code from the pipeline:</b>
-![image](https://github.com/user-attachments/assets/4d0c1a47-621e-4aa2-a0b1-71927fcdaef4)
-> [!Note]
+![image]
 > While adding github credentials add Personal Access Token in the password field.
 #
 - <b>Go to <mark> Manage Jenkins --> System</mark> and search for SonarQube installations:</b>
